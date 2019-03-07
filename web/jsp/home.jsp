@@ -33,10 +33,14 @@
     <button type="submit">Host Details</button>
 </a><br>
 <form method="post" action="checkStatus">
-    <input type="hidden" name="q" value="checkStatus">
-    Check Status <input type="text" name="host" value="hostname" required="required">
+    <input type="hidden" name="q" value="serverStatus">
+    Server Status <input type="text" name="ip" placeholder="IP Address" required="required">
+    <input type="submit" value="Check">
+</form><br>
+<form method="post" action="httpStatus">
+    <input type="hidden" name="q" value="httpStatus">
+    Http Status  <input type="text" name="url" placeholder="http://example.com" value="http://" required="required">
     <input type="submit" value="Check">
 </form>
-
 </body>
 </html>

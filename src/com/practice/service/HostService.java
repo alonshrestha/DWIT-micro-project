@@ -2,6 +2,7 @@ package com.practice.service;
 
 import com.practice.database.DBConnection;
 import com.practice.model.Host;
+import com.practice.model.Users;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -91,5 +92,34 @@ public class HostService {
         }return isUpdateHost;
     }
 
+    public List<Host> selectHost(){
+        List<Host> hostSelect = new ArrayList<>();
+        try{
+            String sql = "select * from host";
+            PreparedStatement pstm = new DBConnection().getPreparedStatement(sql);
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+
+                Host h = new Host();
+                h.setId(rs.getInt("id"));
+                h.setUrl(rs.getString("url"));
+                hostSelect.add(h);
+
+                System.out.println(h.getUrl());
+
+                System.out.println();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }
+        return hostSelect;
+    }
+
+        public static void main(String[] args){
+            HostService hp = new HostService();
+            hp.selectHost();
+
+        }
 
 }

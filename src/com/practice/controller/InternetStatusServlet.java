@@ -14,20 +14,25 @@ public class InternetStatusServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String page = request.getParameter("q");
-        if (page.equalsIgnoreCase("checkStatus")) {
 
-            String host = request.getParameter("host");
-            System.out.println(host);
+        if (page.equalsIgnoreCase("serverStatus")) {
+            System.out.println("ok ya aaye");
+            String ipaddress = request.getParameter("ip");
 
-            /*boolean yesInternet = new CheckInternet().internetStatus(host);
-
+            boolean yesInternet = new CheckInternet().serverStatus(ipaddress);
             if (yesInternet) {
                 request.getRequestDispatcher("jsp/yesInternet.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("jsp/noInternet.jsp").forward(request, response);
-            }*/
-            boolean isURLon = new CheckInternet().httpsStatus();
-            if (isURLon) {
+            }
+
+        }
+
+        if (page.equalsIgnoreCase("httpStatus")) {
+            String http = request.getParameter("url");
+
+            boolean yesInternet = new CheckInternet().httpStatus(http);
+            if (yesInternet) {
                 request.getRequestDispatcher("jsp/yesInternet.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("jsp/noInternet.jsp").forward(request, response);

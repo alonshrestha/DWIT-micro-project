@@ -15,6 +15,9 @@ import java.util.List;
 @WebServlet(name = "HostServlet")
 public class HostServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+
         String q = request.getParameter("q");
         if (q.equalsIgnoreCase("regHost")) {
             String appName = request.getParameter("appname");
@@ -31,6 +34,8 @@ public class HostServlet extends HttpServlet {
             h.setUrl(url);
 
             boolean isHostAdded = new HostService().addHost(h);
+
+
 
             if (isHostAdded) {
                 List<Host> hostList = new HostService().listHost();

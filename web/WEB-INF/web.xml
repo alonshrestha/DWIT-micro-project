@@ -71,6 +71,10 @@
         <servlet-name>InternetStatus</servlet-name>
         <url-pattern>/checkStatus</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InternetStatus</servlet-name>
+        <url-pattern>/httpStatus</url-pattern>
+    </servlet-mapping>
 
 
     <servlet>

@@ -63,12 +63,13 @@
             <td>${host.id}</td>
             <td>${host.appName}</td>
             <td>${host.ipAddr}</td>
-            <td>${host.url}</td>
+            <td><a target="_blank" href="">${host.url}</a></td>
             <td><a href="editHost?q=editHost&id=${host.id}">Edit</a></td>
             <td><a href="deleteHost?q=deleteHost&id=${host.id}">Delete</a></td>
         </tr>
     </c:forEach>
 </table>
+
 
 </body>
 </html>
