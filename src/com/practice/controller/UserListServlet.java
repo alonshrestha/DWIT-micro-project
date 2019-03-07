@@ -1,13 +1,7 @@
-package com.Practice.controller;
+package com.practice.controller;
 
-import com.Practice.model.Users;
-import com.Practice.service.UserEditService;
-import com.Practice.service.UserListService;
-
-import java.io.*;
-import javax.jws.soap.SOAPBinding;
-import javax.servlet.*;
-import javax.servlet.http.*;
+import com.practice.model.Users;
+import com.practice.service.UserListService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-import java.util.SplittableRandom;
 
 @WebServlet(name = "UserListServlet")
 public class UserListServlet extends HttpServlet {

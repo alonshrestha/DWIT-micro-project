@@ -1,7 +1,6 @@
-package com.Practice.service;
+package com.practice.service;
 
-import com.Practice.database.DBConnection;
-import com.Practice.model.Users;
+import com.practice.database.DBConnection;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

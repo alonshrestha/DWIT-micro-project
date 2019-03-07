@@ -1,4 +1,4 @@
-package com.Practice.database;
+package com.practice.database;
 
 import java.sql.*;
 

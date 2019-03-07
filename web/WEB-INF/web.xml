@@ -4,12 +4,11 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <welcome-file-list>
-        <!--<welcome-file>index.jsp</welcome-file>-->
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
     <servlet>
         <servlet-name>Register</servlet-name>
-        <servlet-class>com.Practice.controller.UserRegisterServlet</servlet-class>
+        <servlet-class>com.practice.controller.UserRegisterServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Register</servlet-name>
@@ -17,7 +16,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>com.Practice.controller.UserLoginServlet</servlet-class>
+        <servlet-class>com.practice.controller.UserLoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
@@ -31,7 +30,7 @@
 
     <servlet>
         <servlet-name>List</servlet-name>
-        <servlet-class>com.Practice.controller.UserListServlet</servlet-class>
+        <servlet-class>com.practice.controller.UserListServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>List</servlet-name>
@@ -49,7 +48,7 @@
 
     <servlet>
         <servlet-name>EditUserServlet</servlet-name>
-        <servlet-class>com.Practice.controller.UserEditServlet</servlet-class>
+        <servlet-class>com.practice.controller.UserEditServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EditUserServlet</servlet-name>
@@ -57,7 +56,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>SendMail</servlet-name>
-        <servlet-class>com.Practice.controller.SendMailServlet</servlet-class>
+        <servlet-class>com.practice.controller.SendMailServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SendMail</servlet-name>
@@ -66,7 +65,7 @@
 
     <servlet>
         <servlet-name>InternetStatus</servlet-name>
-        <servlet-class>com.Practice.controller.InternetStatusServlet</servlet-class>
+        <servlet-class>com.practice.controller.InternetStatusServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>InternetStatus</servlet-name>
@@ -76,7 +75,7 @@
 
     <servlet>
         <servlet-name>HostServlet</servlet-name>
-        <servlet-class>com.Practice.controller.HostServlet</servlet-class>
+        <servlet-class>com.practice.controller.HostServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HostServlet</servlet-name>

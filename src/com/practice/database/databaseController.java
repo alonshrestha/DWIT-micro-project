@@ -1,8 +1,5 @@
-package com.Practice.database;
+package com.practice.database;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
-
-import javax.sound.midi.Soundbank;
 import java.sql.*;
 import java.util.Scanner;
 

@@ -1,5 +1,4 @@
-package com.Practice.model;
-import java.io.*;
+package com.practice.model;
 import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;

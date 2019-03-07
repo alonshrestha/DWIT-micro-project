@@ -1,11 +1,10 @@
-package com.Practice.service;
-import com.Practice.model.Users;
-import com.Practice.database.DBConnection;
+package com.practice.service;
+import com.practice.model.Users;
+import com.practice.database.DBConnection;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.SQLOutput;
 
 
 public class UserLoginService {

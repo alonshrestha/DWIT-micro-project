@@ -1,7 +1,7 @@
-package com.Practice.controller;
-import com.Practice.model.Users;
-import com.Practice.service.UserLoginService;
-import javax.jws.soap.SOAPBinding;
+package com.practice.controller;
+import com.practice.model.Users;
+import com.practice.service.UserLoginService;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -10,7 +10,7 @@ import java.io.IOException;
 @WebServlet(name = "UserLoginServlet")
 public class UserLoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        System.out.println("--------------------------------");
 
 
             String email = request.getParameter("email");

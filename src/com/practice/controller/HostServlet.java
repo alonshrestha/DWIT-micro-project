@@ -1,9 +1,7 @@
-package com.Practice.controller;
+package com.practice.controller;
 
-import com.Practice.model.Host;
-import com.Practice.model.Users;
-import com.Practice.service.HostService;
-import com.Practice.service.UserListService;
+import com.practice.model.Host;
+import com.practice.service.HostService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

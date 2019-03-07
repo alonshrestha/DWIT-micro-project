@@ -1,10 +1,7 @@
-package com.Practice.service;
-import com.Practice.model.Users;
-import com.Practice.database.DBConnection;
-import com.Practice.service.UserRegisterService;
-import com.mysql.cj.xdevapi.Result;
+package com.practice.service;
+import com.practice.model.Users;
+import com.practice.database.DBConnection;
 
-import javax.jws.soap.SOAPBinding;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

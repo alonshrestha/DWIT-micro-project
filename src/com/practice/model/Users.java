@@ -1,4 +1,4 @@
-package com.Practice.model;
+package com.practice.model;
 
 public class Users {
     int id;

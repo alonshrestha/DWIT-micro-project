@@ -1,6 +1,6 @@
-package com.Practice.controller;
+package com.practice.controller;
 
-import com.Practice.model.SendMail;
+import com.practice.model.SendMail;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

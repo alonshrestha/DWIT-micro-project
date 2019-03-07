@@ -1,8 +1,6 @@
-package com.Practice.controller;
+package com.practice.controller;
 
-import com.Practice.model.CheckInternet;
-import com.Practice.model.Host;
-import com.Practice.service.HostService;
+import com.practice.model.CheckInternet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

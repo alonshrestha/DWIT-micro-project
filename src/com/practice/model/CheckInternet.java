@@ -1,4 +1,4 @@
-package com.Practice.model;
+package com.practice.model;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,10 +8,10 @@ import java.net.*;
 public class CheckInternet {
     public boolean yesInternet = false;
 
-    public boolean internetStatus() {
+    public boolean internetStatus(String ipAddress) {
         Process p = null;
         try {
-            p = Runtime.getRuntime().exec("ping 192.168.4.1");
+            p = Runtime.getRuntime().exec("ping " + ipAddress  );
             BufferedReader inputStream = new BufferedReader(
                     new InputStreamReader(p.getInputStream()));
             // reading output stream of the command
@@ -92,7 +92,7 @@ public class CheckInternet {
 
         CheckInternet obj = new CheckInternet();
         obj.httpsStatus();
-        obj.internetStatus();
+        obj.internetStatus("192.168.4.1");
     }
 
 

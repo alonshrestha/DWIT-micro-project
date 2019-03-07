@@ -1,9 +1,8 @@
-package com.Practice.controller;
+package com.practice.controller;
 
-import com.Practice.model.Users;
-import com.Practice.service.UserCheckService;
-import com.Practice.service.UserLoginService;
-import com.Practice.service.UserRegisterService;
+import com.practice.model.Users;
+import com.practice.service.UserCheckService;
+import com.practice.service.UserRegisterService;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

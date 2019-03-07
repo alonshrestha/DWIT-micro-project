@@ -1,13 +1,11 @@
-package com.Practice.service;
+package com.practice.service;
 
-import com.Practice.database.DBConnection;
-import com.Practice.model.Users;
-import com.mysql.cj.xdevapi.Result;
+import com.practice.database.DBConnection;
+import com.practice.model.Users;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.SQLOutput;
 
 public class UserCheckService {
 
