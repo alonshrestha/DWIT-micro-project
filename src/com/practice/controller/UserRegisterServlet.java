@@ -39,7 +39,7 @@ public class UserRegisterServlet extends HttpServlet {
                    boolean isInserted = new UserRegisterService().addUser(user);
 
                 if (isInserted) {
-                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                    request.getRequestDispatcher("demo.jsp").forward(request, response);
                 } else
                     request.getRequestDispatcher("jsp/register.jsp").forward(request, response);
 

@@ -1,6 +1,7 @@
 package com.practice.service;
 
 import com.practice.database.DBConnection;
+import com.practice.model.CheckInternet;
 import com.practice.model.Host;
 import com.practice.model.Users;
 
@@ -48,6 +49,7 @@ public class HostService {
                 h.setIpAddr(rs.getString("ipAddr"));
                 h.setUrl(rs.getString("url"));
                 hostList.add(h);
+                System.out.println(hostList.add(h));
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -95,25 +97,23 @@ public class HostService {
     public List<Host> selectHost(){
         List<Host> hostSelect = new ArrayList<>();
         try{
-            String sql = "select * from host";
+            String sql = "select url from host";
             PreparedStatement pstm = new DBConnection().getPreparedStatement(sql);
             ResultSet rs = pstm.executeQuery();
             while(rs.next()){
 
                 Host h = new Host();
-                h.setId(rs.getInt("id"));
                 h.setUrl(rs.getString("url"));
                 hostSelect.add(h);
 
-                System.out.println(h.getUrl());
 
-                System.out.println();
             }
         }catch (Exception e){
             e.printStackTrace();
 
         }
         return hostSelect;
+
     }
 
         public static void main(String[] args){
@@ -121,5 +121,4 @@ public class HostService {
             hp.selectHost();
 
         }
-
 }

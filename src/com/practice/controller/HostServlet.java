@@ -1,5 +1,6 @@
 package com.practice.controller;
 
+import com.practice.model.CheckInternet;
 import com.practice.model.Host;
 import com.practice.service.HostService;
 
@@ -15,6 +16,7 @@ import java.util.List;
 @WebServlet(name = "HostServlet")
 public class HostServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 
 
 

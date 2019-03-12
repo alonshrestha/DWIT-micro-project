@@ -1,6 +1,8 @@
 package com.practice.controller;
 
 import com.practice.model.CheckInternet;
+import com.practice.model.Host;
+import com.practice.service.HostService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "InternetStatusServlet")
 public class InternetStatusServlet extends HttpServlet {
@@ -38,6 +41,8 @@ public class InternetStatusServlet extends HttpServlet {
                 request.getRequestDispatcher("jsp/noInternet.jsp").forward(request, response);
             }
         }
+
+
 
 
     }
