@@ -17,8 +17,6 @@ public class UserRegisterService {
             pstm.setString(1,user.getName());
             pstm.setString(2,user.getEmail());
             pstm.setString(3,user.getPassword());
-            pstm.executeUpdate();
-
             int affectedRow = pstm.executeUpdate(); //row ma changes aayo ki nai ?? check gareko
             if(affectedRow > 0){
                 isInserted = true;

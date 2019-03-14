@@ -22,7 +22,6 @@ public class HostService {
             pstm.setString(1,h.getAppName());
             pstm.setString(2,h.getIpAddr());
             pstm.setString(3,h.getUrl());
-            pstm.executeUpdate();
 
             int rowAffected = pstm.executeUpdate();
             if(rowAffected > 0){
@@ -34,6 +33,7 @@ public class HostService {
         }
         return isHostAdd;
     }
+
 
     public List<Host> listHost() {
         List<Host> hostList = new ArrayList<>();
@@ -49,9 +49,8 @@ public class HostService {
                 h.setIpAddr(rs.getString("ipAddr"));
                 h.setUrl(rs.getString("url"));
                 hostList.add(h);
-                System.out.println(hostList.add(h));
             }
-        }catch (Exception e){
+        }catch (SQLException e){
             e.printStackTrace();
 
         }
@@ -80,7 +79,6 @@ public class HostService {
             pstm.setString(1,h.getAppName());
             pstm.setString(2,h.getIpAddr());
             pstm.setString(3,h.getUrl());
-            pstm.executeUpdate();
 
             int affectedRow = pstm.executeUpdate();
             if(affectedRow > 0){

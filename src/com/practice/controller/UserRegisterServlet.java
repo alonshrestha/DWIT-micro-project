@@ -23,7 +23,6 @@ public class UserRegisterServlet extends HttpServlet {
             password = pass1;
             System.out.printf(password);
         } else
-
             request.getRequestDispatcher("jsp/register.jsp");
         System.out.println("ya samma ni aayo ");
         Users user = new Users();
@@ -39,7 +38,7 @@ public class UserRegisterServlet extends HttpServlet {
                    boolean isInserted = new UserRegisterService().addUser(user);
 
                 if (isInserted) {
-                    request.getRequestDispatcher("demo.jsp").forward(request, response);
+                    request.getRequestDispatcher("main.jsp").forward(request, response);
                 } else
                     request.getRequestDispatcher("jsp/register.jsp").forward(request, response);
 

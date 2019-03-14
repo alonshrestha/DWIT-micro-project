@@ -13,10 +13,8 @@ public class DBConnection {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, userName, passWord);
-            System.out.println("okk conn");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("no conn");
         }
 
     }

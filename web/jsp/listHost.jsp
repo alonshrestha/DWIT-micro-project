@@ -41,7 +41,7 @@
 </head>
 
 <body>
-<h2>User Details</h2>
+<h2>Host Details</h2>
 <ul>
     <li><a href="regHost?q=regHost" style="align-items: center"><button type="submit" style="align-items: center">Add Host</button></a></li>
     <li><a href="home?q=home"><button type="submit">Home</button> </a></li>

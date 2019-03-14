@@ -43,12 +43,16 @@ public class CheckInternet {
             if (code == 200) {
                 isURLOn = true;
                 System.out.println("OK");
-            } else {
-                System.out.println("Application Down");
+            } else if (code == 404){
+                System.out.println("404 Not Found");
+            }else if (code == 500){
+                System.out.println("500 Internal Server Error");
+            }else {
+                System.out.println("Alert The Site Is Down");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("DOwn cha haii");
+            System.out.println("Alert The Site Is Down");
         }
         return isURLOn;
     }
@@ -57,30 +61,48 @@ public class CheckInternet {
 
     public boolean httpStatusList(List<Host> httpUrlList) {
         boolean isURLOnList = false;
-
+        String appName=null;
         for ( Host urlList : httpUrlList) {
-
+            SendMail callObj = new SendMail();
             try {
                 URL url = new URL(urlList.getUrl());
+                appName = urlList.getUrl();
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
+
                 connection.connect();
 
                 int code = connection.getResponseCode();
                 System.out.println("Response code of the object is " + code);
-                if (code == 200) {
-                    isURLOnList = true;
-                    System.out.println("OK");
-                } else {
-                    System.out.println(urlList.getUrl());
-                    System.out.println("Application Down");
 
+                switch (code) {
+                    case 200:
+                        isURLOnList = true;
+                        System.out.println(appName + " OK");
+                        break;
+                    case 404:
+
+                        callObj.sendAlert(appName);
+                        isURLOnList = false;
+                        System.out.println(appName + " 404 Not Found");
+                        break;
+                    case 500:
+                        callObj.sendAlert(appName);
+                        isURLOnList = false;
+                        System.out.println(appName + " 500 Internal Server Error");
+                        break;
+
+                    default:
+                        callObj.sendAlert(appName);
+                        isURLOnList = false;
+                        System.out.println(appName + " Alert The Site Is Down");
                 }
-
-            }catch (Exception e){
+            } catch (IOException e) {
                 e.printStackTrace();
-                System.out.println("exception aayo !!!");
                 isURLOnList = false;
+                System.out.println("ex: "+appName);
+                callObj.sendAlert(appName);
+
             }
 
         }
@@ -88,6 +110,9 @@ public class CheckInternet {
     }
 
     public static void main(String[] args) {
+     CheckInternet obj = new CheckInternet();
+     obj.httpStatus("http://profe.deerwalk.edu.np");
+
 
     }
 

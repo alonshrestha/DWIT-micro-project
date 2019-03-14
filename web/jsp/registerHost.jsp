@@ -15,8 +15,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <body>
 <div align="center">
-<form method="post" action="addHost">
-        <input type="hidden" name="q" value="regHost">
+<form method="post" action="regHost1">
+        <input type="hidden" name="q" value="regHost2">
     Application : <input type="text" name="appname" required="required"><br>
     IP Address : <input type="text" name="ipAddr" required="required"><br>
     Url : <input type="text" name="url"  required="required"><br>

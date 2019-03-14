@@ -21,7 +21,7 @@ public class HostServlet extends HttpServlet {
 
 
         String q = request.getParameter("q");
-        if (q.equalsIgnoreCase("regHost")) {
+        if (q.equalsIgnoreCase("regHost2")) {
             String appName = request.getParameter("appname");
             String ipAddr = request.getParameter("ipAddr");
             String url = request.getParameter("url");
@@ -36,15 +36,15 @@ public class HostServlet extends HttpServlet {
             h.setUrl(url);
 
             boolean isHostAdded = new HostService().addHost(h);
-
-
+            System.out.println("is host samma aaye");
+            System.out.println(isHostAdded);
 
             if (isHostAdded) {
-                List<Host> hostList = new HostService().listHost();
-                request.setAttribute("h", hostList);
-                request.getRequestDispatcher("jsp/listHost").forward(request, response);
+                /*List<Host> hostList = new HostService().listHost();
+                request.setAttribute("h", hostList);*/
+                request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
             } else {
-                request.getRequestDispatcher("jsp/registerHost.jsp").forward(request, response);
+                request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
             }
         }
 
@@ -91,6 +91,7 @@ public class HostServlet extends HttpServlet {
         if (q.equalsIgnoreCase("regHost")) {
             request.getRequestDispatcher("jsp/registerHost.jsp").forward(request, response);
         }
+
         if (q.equalsIgnoreCase("listHost")) {
             List<Host> hostList = new HostService().listHost();
             request.setAttribute("h", hostList);

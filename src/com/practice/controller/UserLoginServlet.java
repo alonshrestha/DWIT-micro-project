@@ -23,22 +23,10 @@ public class UserLoginServlet extends HttpServlet {
             boolean isUserExist = new UserLoginService().login(user);
 
             if (isUserExist){
-                HttpSession oldSession = request.getSession(false);
-                if (oldSession != null) {
-                    oldSession.invalidate();
-                }
-                //generate a new session
-                HttpSession newSession = request.getSession(true);
-
-                //setting session to expiry in 5 mins
-                newSession.setMaxInactiveInterval(5*60);
-
-                Cookie message = new Cookie("message", "Welcome");
-                response.addCookie(message);
 
                 request.getRequestDispatcher("jsp/home.jsp").forward(request,response);
             }else
-                request.getRequestDispatcher("index.jsp").forward(request,response);
+                request.getRequestDispatcher("dome.jsp").forward(request,response);
 
 
     }

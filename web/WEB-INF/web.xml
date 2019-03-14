@@ -6,6 +6,7 @@
     <servlet>
         <servlet-name>root</servlet-name>
         <servlet-class>com.practice.controller.RootServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>root</servlet-name>
@@ -92,7 +93,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HostServlet</servlet-name>
-        <url-pattern>/addHost</url-pattern>
+        <url-pattern>/regHost1</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HostServlet</servlet-name>

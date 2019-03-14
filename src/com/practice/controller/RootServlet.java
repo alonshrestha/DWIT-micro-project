@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 @WebServlet(name = "RootServlet")
 public class RootServlet extends HttpServlet {
@@ -21,9 +23,24 @@ public class RootServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("here");
-
         List<Host> hostSelect = new HostService().selectHost();
+
+        int MINUTES = 1; // The delay in minutes
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() { // Function runs every MINUTES minutes.
+                // Run the code you want here
+                CheckInternet callObj = new CheckInternet();
+                callObj.httpStatusList(hostSelect);// If the function you wanted was static
+            }
+
+        }, 0, 1000 * 60 * MINUTES);
+        request.getRequestDispatcher("main.jsp").forward(request,response);
+//        request.getRequestDispatcher("main.jsp").forward(request,response);
+        // 1000 milliseconds in a second * 60 per minute * the MINUTES variable.
+
+        /*List<Host> hostSelect = new HostService().selectHost();
         boolean isUrlList = new CheckInternet().httpStatusList(hostSelect);
         if(isUrlList){
             System.out.println("OK!!!");
@@ -32,6 +49,6 @@ public class RootServlet extends HttpServlet {
         {
             System.out.println("NoOK!!");
             request.getRequestDispatcher("jsp/noInternet.jsp").forward(request,response);
-        }
+        }*/
     }
 }

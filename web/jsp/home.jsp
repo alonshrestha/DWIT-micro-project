@@ -27,7 +27,7 @@
     <button type="submit">User Details</button>
 </a>
 <a href="regHost?q=regHost">
-    <button type="submit">Register Host</button>
+1    <button type="submit">Register Host</button>
 </a>
 <a href="listHost?q=listHost">
     <button type="submit">Host Details</button>
