@@ -39,5 +39,10 @@ public class UserLoginServlet extends HttpServlet {
         {
             request.getRequestDispatcher("jsp/home.jsp").forward(request,response);
         }
+        if(page.equalsIgnoreCase("logout"))
+        {
+            request.getRequestDispatcher("main.jsp").forward(request,response);
+
+        }
     }
 }

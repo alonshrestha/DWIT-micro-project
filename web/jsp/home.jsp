@@ -17,7 +17,7 @@
 </head>
 <body>
 <h1>Welcome!!</h1>
-<a href="index.jsp">
+<a href="logout?q=logout">
     <button type="submit">Logout</button>
 </a>
 <a href="register?q=register">
@@ -27,7 +27,7 @@
     <button type="submit">User Details</button>
 </a>
 <a href="regHost?q=regHost">
-1    <button type="submit">Register Host</button>
+    <button type="submit">Register Host</button>
 </a>
 <a href="listHost?q=listHost">
     <button type="submit">Host Details</button>

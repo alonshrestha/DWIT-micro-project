@@ -45,7 +45,7 @@
 <ul>
     <li><a href="regHost?q=regHost" style="align-items: center"><button type="submit" style="align-items: center">Add Host</button></a></li>
     <li><a href="home?q=home"><button type="submit">Home</button> </a></li>
-    <li><a href="index.jsp"><button type="submit">Logout</button> </a></li>
+    <li><a href="logout?q=logout"><button type="submit">Logout</button> </a></li>
 
 </ul>
 <table>
@@ -64,7 +64,7 @@
             <td>${host.appName}</td>
             <td>${host.ipAddr}</td>
             <td><a target="_blank" href="">${host.url}</a></td>
-            <td><a href="editHost?q=editHost&id=${host.id}">Edit</a></td>
+            <td><a href="editHost?q=editHost&id=${host.id}&appName=${host.appName}&ipAddr=${host.ipAddr}&url=${host.url}">Edit</a></td>
             <td><a href="deleteHost?q=deleteHost&id=${host.id}">Delete</a></td>
         </tr>
     </c:forEach>

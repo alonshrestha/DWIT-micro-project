@@ -45,7 +45,7 @@
 <ul>
     <li><a href="register?q=register" style="align-items: center"><button type="submit" style="align-items: center">Add User</button></a></li>
     <li><a href="home?q=home"><button type="submit">Home</button> </a></li>
-    <li><a href="index.jsp"><button type="submit">Logout</button> </a></li>
+    <li><a href="logout?q=logout"><button type="submit">Logout</button> </a></li>
 
 </ul>
 <table>

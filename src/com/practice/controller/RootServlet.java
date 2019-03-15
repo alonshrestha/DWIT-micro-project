@@ -23,16 +23,18 @@ public class RootServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Host> hostSelect = new HostService().selectHost();
+        List<Host> urlSelect = new HostService().selectUrl();
+        List<Host> ipAddrSelect = new HostService().selectIPAddr();
 
-        int MINUTES = 1; // The delay in minutes
+        int MINUTES = 50; // The delay in minutes
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() { // Function runs every MINUTES minutes.
                 // Run the code you want here
                 CheckInternet callObj = new CheckInternet();
-                callObj.httpStatusList(hostSelect);// If the function you wanted was static
+                callObj.httpStatusList(urlSelect);// If the function you wanted was static
+                callObj.serverStatusList(ipAddrSelect);
             }
 
         }, 0, 1000 * 60 * MINUTES);

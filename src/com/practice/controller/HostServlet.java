@@ -110,7 +110,13 @@ public class HostServlet extends HttpServlet {
 
         if (q.equalsIgnoreCase("editHost")) {
             int id = Integer.parseInt(request.getParameter("id"));
-            request.setAttribute("i", id);
+            String appName = request.getParameter("appName");
+            String ipAddr = request.getParameter("ipAddr");
+            String url = request.getParameter("url");
+            request.setAttribute("id", id);
+            request.setAttribute("appName", appName);
+            request.setAttribute("ipAddr", ipAddr);
+            request.setAttribute("url", url);
             request.getRequestDispatcher("jsp/editHost.jsp").forward(request, response);
         }
 

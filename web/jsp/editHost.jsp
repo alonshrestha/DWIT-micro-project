@@ -15,12 +15,12 @@
 <body>
 <div align="center">
     <form action="editHostPost" method="post">
-        <h1>ID=${i}</h1>
+        <h1>ID=${id}</h1>
         <input type="hidden" name="q" value="editHost">
-        <input type="hidden" name="id" value="${i}">
-        Application <input type="text" name="appName"  required="required"><br><br>
-        IP Address <input type="text" name="ipAddr"  required="required"><br><bra>
-        Url <input type="text" name="url"  required="required"><br><br>
+        <input type="hidden" name="id" value="${id}">
+        Application <input type="text" name="appName" value="${appName}" required="required"><br><br>
+        IP Address <input type="text" name="ipAddr"  value="${ipAddr}" required = "required"><br><bra>
+        Url <input type="text" name="url"  value="${url}"required = "required"><br><br>
         <input type="submit" value="Save">
     </form>
 </div>

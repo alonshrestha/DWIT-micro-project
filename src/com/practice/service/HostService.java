@@ -92,8 +92,8 @@ public class HostService {
         }return isUpdateHost;
     }
 
-    public List<Host> selectHost(){
-        List<Host> hostSelect = new ArrayList<>();
+    public List<Host> selectUrl(){
+        List<Host> urlSelect = new ArrayList<>();
         try{
             String sql = "select url from host";
             PreparedStatement pstm = new DBConnection().getPreparedStatement(sql);
@@ -102,7 +102,7 @@ public class HostService {
 
                 Host h = new Host();
                 h.setUrl(rs.getString("url"));
-                hostSelect.add(h);
+                urlSelect.add(h);
 
 
             }
@@ -110,13 +110,34 @@ public class HostService {
             e.printStackTrace();
 
         }
-        return hostSelect;
+        return urlSelect;
+
+    }
+
+
+    public List<Host> selectIPAddr(){
+        List<Host> ipAddrSelect = new ArrayList<>();
+        try{
+            String sql = "select ipAddr from host";
+            PreparedStatement pstm = new DBConnection().getPreparedStatement(sql);
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+
+                Host h = new Host();
+                h.setIpAddr(rs.getString("ipAddr"));
+                ipAddrSelect.add(h);
+
+
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }
+        return ipAddrSelect;
 
     }
 
         public static void main(String[] args){
-            HostService hp = new HostService();
-            hp.selectHost();
 
         }
 }

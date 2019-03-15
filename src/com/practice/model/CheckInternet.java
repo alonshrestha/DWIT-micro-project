@@ -28,6 +28,34 @@ public class CheckInternet {
         return yesInternet;
     }
 
+    boolean isServerOn =false;
+
+    public boolean serverStatusList(List<Host> ipAddr) {
+        Process p = null;
+        for (Host ip : ipAddr) {
+            String IP = ip.getIpAddr();
+            SendMail callobj = new SendMail();
+            try {
+                p = Runtime.getRuntime().exec("ping " + IP);
+                BufferedReader inputStream = new BufferedReader(
+                        new InputStreamReader(p.getInputStream()));
+                // reading output stream of the command
+                System.out.println("Tracing " + IP);
+                if ((inputStream.readLine()) != null) {
+
+                    isServerOn = true;
+                }else {
+                    callobj.sendAlertIP(IP);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                callobj.sendAlertIP(IP);
+            }
+
+
+        }return isServerOn;
+    }
+
 
     boolean isURLOn = false;
 
@@ -60,6 +88,7 @@ public class CheckInternet {
 
 
     public boolean httpStatusList(List<Host> httpUrlList) {
+        int code=0;
         boolean isURLOnList = false;
         String appName=null;
         for ( Host urlList : httpUrlList) {
@@ -72,7 +101,7 @@ public class CheckInternet {
 
                 connection.connect();
 
-                int code = connection.getResponseCode();
+                code = connection.getResponseCode();
                 System.out.println("Response code of the object is " + code);
 
                 switch (code) {
@@ -82,18 +111,18 @@ public class CheckInternet {
                         break;
                     case 404:
 
-                        callObj.sendAlert(appName);
+                        callObj.sendAlertUrl(appName, code);
                         isURLOnList = false;
                         System.out.println(appName + " 404 Not Found");
                         break;
                     case 500:
-                        callObj.sendAlert(appName);
+                        callObj.sendAlertUrl(appName, code);
                         isURLOnList = false;
                         System.out.println(appName + " 500 Internal Server Error");
                         break;
 
                     default:
-                        callObj.sendAlert(appName);
+                        callObj.sendAlertUrl(appName, code);
                         isURLOnList = false;
                         System.out.println(appName + " Alert The Site Is Down");
                 }
@@ -101,7 +130,7 @@ public class CheckInternet {
                 e.printStackTrace();
                 isURLOnList = false;
                 System.out.println("ex: "+appName);
-                callObj.sendAlert(appName);
+                callObj.sendAlertUrl(appName, code);
 
             }
 
@@ -110,8 +139,6 @@ public class CheckInternet {
     }
 
     public static void main(String[] args) {
-     CheckInternet obj = new CheckInternet();
-     obj.httpStatus("http://profe.deerwalk.edu.np");
 
 
     }
