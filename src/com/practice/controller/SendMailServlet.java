@@ -22,8 +22,15 @@ public class SendMailServlet extends HttpServlet {
         String cc = request.getParameter("cc");
         String subject = request.getParameter("subject");
         String message =  request.getParameter("message");
-        SendMail.send(name,batch,cc,subject, message);
-        out.println("Mail send successfully");
+//        SendMail.send(name,batch,cc,subject, message);
+
+        boolean sendMail = new SendMail().send(name,batch,cc,subject, message);
+        if(sendMail) {
+            request.setAttribute("alertMsg", "Message Send to IT-Department");
+            request.getRequestDispatcher("main.jsp").forward(request, response);
+        }
+
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

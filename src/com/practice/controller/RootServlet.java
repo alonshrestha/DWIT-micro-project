@@ -23,7 +23,7 @@ public class RootServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Host> urlSelect = new HostService().selectUrl();
+       /* List<Host> urlSelect = new HostService().selectUrl();
         List<Host> ipAddrSelect = new HostService().selectIPAddr();
 
         int MINUTES = 50; // The delay in minutes
@@ -37,7 +37,7 @@ public class RootServlet extends HttpServlet {
                 callObj.serverStatusList(ipAddrSelect);
             }
 
-        }, 0, 1000 * 60 * MINUTES);
+        }, 0, 1000 * 60 * MINUTES);*/
         request.getRequestDispatcher("main.jsp").forward(request,response);
 //        request.getRequestDispatcher("main.jsp").forward(request,response);
         // 1000 milliseconds in a second * 60 per minute * the MINUTES variable.

@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="DWIT-micro-project:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/DWIT_micro_project_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="DWIT-micro-project" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="DWIT-micro-project/web/Web" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="lib1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/DWIT_micro_project_war_exploded/WEB-INF/lib/mysql-connector-java-8.0.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/DWIT_micro_project_war_exploded/WEB-INF/lib/mail.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/DWIT_micro_project_war_exploded/WEB-INF/lib/activation.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/DWIT_micro_project_war_exploded/WEB-INF/lib/jstl-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/DWIT_micro_project_war_exploded/WEB-INF/lib/servlet-api.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

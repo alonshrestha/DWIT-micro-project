@@ -40,8 +40,8 @@ public class HostServlet extends HttpServlet {
             System.out.println(isHostAdded);
 
             if (isHostAdded) {
-                /*List<Host> hostList = new HostService().listHost();
-                request.setAttribute("h", hostList);*/
+                List<Host> hostList = new HostService().listHost();
+                request.setAttribute("h", hostList);
                 request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
@@ -96,6 +96,8 @@ public class HostServlet extends HttpServlet {
             List<Host> hostList = new HostService().listHost();
             request.setAttribute("h", hostList);
             request.getRequestDispatcher("jsp/listHost.jsp").forward(request, response);
+
+
         }
 
         if (q.equalsIgnoreCase("deleteHost")) {

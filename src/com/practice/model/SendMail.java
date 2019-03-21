@@ -12,7 +12,8 @@ public class SendMail {
 //    private static final String to = "alon.shrestha@deerwalk.edu.np";
     private static final String to= "alon.shrestha@deerwalk.edu.np";
 
-    public static void send(String name, String batch, String cc, String sub,
+boolean sendMail = false;
+    public boolean send(String name, String batch, String cc, String sub,
                             String msg)     {
         //create an instance of Properties Class
         Properties props = new Properties();
@@ -47,9 +48,11 @@ public class SendMail {
             message.setText("By : " + name + " From Batch Of : " + batch + "\n" + "Problem : " + msg);
             /* Transport class is used to deliver the message to the recipients */
             Transport.send(message);
+            sendMail=true ;
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return sendMail;
     }
 
 
