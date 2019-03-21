@@ -1,40 +1,59 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: alon
-  Date: 2/12/19
-  Time: 1:38 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Login</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        <%@include file="css/main.css" %>
+        <%@include file="bootstrap-4.3.1/css/bootstrap.min.css" %>
+        <%@include file="bootstrap-4.3.1/css/bootstrap-grid.min.css" %>
+    </style>
+    <script type="text/javascript">
+        <%@include file="bootstrap-4.3.1/js/bootstrap.min.js" %>
+        <%@include file="bootstrap-4.3.1/js/jquery.min.js" %>
+    </script>
 </head>
-<body style="background-color: gainsboro">
-<div  style="position:relative; float: right ;  ">
-<form method="post" action="login">
-    Email<br>
-    <input style="align-items: center" type="email" name="email" required="required"><br>
-    Password<br>
-    <input type="password" name="password"  required="required"><br><br>
-    <input  type="submit" value="Login"><br>
-    <a href="register?q=register">Register ?</a>
+<body>
+<div class="container-fluid">
 
-</form>
+    <div class="row">
+        <div class="col-sm-9 " align="center">
+            <div class="jumbotron">
+                <h1>Contact Us</h1>
+                <form method="post" action="sendDetail">
+                    <input type="text" name="name" placeholder="Your Name"><br>
+                    <input type="text" name="batch" placeholder="Your Batch"><br>
+                    <input type="text" name="cc" placeholder="Your Email @deerwalk.edu.np"><br>
+                    <input type="text" name="subject" placeholder="Your Subject"><br>
+                    <textarea type="text" name="message" placeholder="Enter Your Problem Here"></textarea><br><br>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-3" align="center">
+            <div class="jumbotron">
+                <form method="post" action="login">
+                    <h1>Login</h1>
+                    <input type="hidden" name="q" value="listHost">
+                    <input style="align-items: center" type="email" name="email" placeholder="Your Email" required="required"><br>
+                    <input type="password" name="password" required="required" placeholder="Password"><br><br>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-
-<div  align="center">
-    <form method="post" action="sendDetail">
-        <input type="text" name="name" placeholder="Your Name"><br>
-        <input type="text" name="batch" placeholder="Your Batch"><br>
-        <input type="text" name="cc" placeholder="Your Email @deerwalk.edu.np"><br>
-        <input type="text" name="subject" placeholder="Your Subject"><br>
-        <input type="text" name="message" placeholder="Enter Your Problem Here"><br>
-        <input type="submit" value="Send">
-    </form>
-
-</div>
+<% String message = (String)request.getAttribute("alertMsg");
+if (message == null){
+    request.getRequestDispatcher("main.jsp").forward(request,response);
+}
+%>
+<script type="text/javascript">
+    var msg = "<%=message%>";
+    alert(msg);
+</script>
+<script src="bootstrap-4.3.1/js/jquery.min.js"></script>
+<script src="bootstrap-4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
