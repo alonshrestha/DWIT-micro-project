@@ -6,6 +6,7 @@ import com.practice.service.HostService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,10 +15,8 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "HostServlet")
-public class HostServlet extends HttpServlet {
+public class    HostServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
 
 
         String q = request.getParameter("q");
@@ -49,7 +48,7 @@ public class HostServlet extends HttpServlet {
             }
         }
 
-        if(q.equalsIgnoreCase("editHost")){
+        if (q.equalsIgnoreCase("editHost")) {
 
             String appName = request.getParameter("appName");
             String ipAddr = request.getParameter("ipAddr");
@@ -67,14 +66,14 @@ public class HostServlet extends HttpServlet {
             h.setUrl(url);
             h.setId(id);
 
-            boolean isHostUpdate = new  HostService().editHost(h);
+            boolean isHostUpdate = new HostService().editHost(h);
 
-            if(isHostUpdate){
+            if (isHostUpdate) {
                 List<Host> hostList = new HostService().listHost();
-                request.setAttribute("h",hostList);
-                request.getRequestDispatcher("jsp/listHost.jsp").forward(request,response);
-            }else {
-                request.getRequestDispatcher("jsp/editHost.jsp").forward(request,response);
+                request.setAttribute("h", hostList);
+                request.getRequestDispatcher("jsp/listHost.jsp").forward(request, response);
+            } else {
+                request.getRequestDispatcher("jsp/editHost.jsp").forward(request, response);
             }
 
 
@@ -84,7 +83,7 @@ public class HostServlet extends HttpServlet {
 
         /*---------------------------------------------------------------------------------------------*/
 
-        if(q.equalsIgnoreCase("regServer2")){
+        if (q.equalsIgnoreCase("regServer2")) {
             String serverName = request.getParameter("serverName");
             String serverAddr = request.getParameter("serverAddr");
 
@@ -92,10 +91,12 @@ public class HostServlet extends HttpServlet {
             s.setServerName(serverName);
             s.setServerAddr(serverAddr);
 
-            boolean isServerAdd = new   HostService().addServer(s);
+            boolean isServerAdd = new HostService().addServer(s);
             if (isServerAdd) {
-                List<Host> serverList = new HostService().listHost();
+                List<Host> serverList = new HostService().serverList();
+
                 request.setAttribute("s", serverList);
+                System.out.println("serverList = " + serverList);
                 request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
@@ -103,13 +104,38 @@ public class HostServlet extends HttpServlet {
 
         }
 
+        if (q.equalsIgnoreCase("editServer")) {
 
+            String serverName = request.getParameter("serverName");
+            String serverAddr = request.getParameter("serverAddr");
+            String serverID = request.getParameter("serverId");
+
+            int serverId = Integer.parseInt(serverID);
+            System.out.println(serverName);
+            System.out.println(serverAddr);
+            Host s = new Host();
+            System.out.println(serverId);
+            s.setServerName(serverName);
+            s.setServerAddr(serverAddr);
+            s.setserverId(serverId);
+
+            boolean isServerUpdate = new HostService().editServer(s);
+
+            if (isServerUpdate) {
+                List<Host> serverList = new HostService().serverList();
+                request.setAttribute("s", serverList);
+                request.getRequestDispatcher("jsp/listHost.jsp").forward(request, response);
+            } else {
+                request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
+            }
+
+
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String q = request.getParameter("q");
-        String w = request.getParameter("w");
 
         if (q.equalsIgnoreCase("regHost")) {
             request.getRequestDispatcher("jsp/registerHost.jsp").forward(request, response);
@@ -149,6 +175,17 @@ public class HostServlet extends HttpServlet {
             request.setAttribute("ipAddr", ipAddr);
             request.setAttribute("url", url);
             request.getRequestDispatcher("jsp/editHost.jsp").forward(request, response);
+        }
+
+       /*------------------------------------------------------------------------------------------*/
+        if (q.equalsIgnoreCase("editServer")) {
+            int serverId = Integer.parseInt(request.getParameter("serverId"));
+            String serverName = request.getParameter("serverName");
+            String serverAddr = request.getParameter("serverAddr");
+            request.setAttribute("serverId", serverId);
+            request.setAttribute("serverName", serverName);
+            request.setAttribute("serverAddr", serverAddr);
+            request.getRequestDispatcher("jsp/editServer.jsp").forward(request, response);
         }
 
     }

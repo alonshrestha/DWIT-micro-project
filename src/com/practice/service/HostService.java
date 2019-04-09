@@ -57,7 +57,7 @@ public class HostService {
         return hostList;
     }
 
-    public void     deleteHost(int id) {
+    public void deleteHost(int id) {
         String query = "delete from host where id=?";
         try {
             PreparedStatement pstm = new DBConnection().getPreparedStatement(query);
@@ -176,22 +176,27 @@ public class HostService {
     }
 
     public List<Host> serverList() {
-        List<Host> stList = new ArrayList<>();
+        List<Host> sList = new ArrayList<>();
         try{
             String sql = "select * from serverHost";
             PreparedStatement pstm = new DBConnection().getPreparedStatement(sql);
             ResultSet rs = pstm.executeQuery();
             while(rs.next()){
+
                 Host s = new Host();
-                s.setsId(rs.getInt("id"));
+                s.setserverId(rs.getInt("ID"));
+                System.out.println("s = " + s.getserverId());
                 s.setServerName(rs.getString("serverName"));
+                System.out.println("s = " + s.getServerName());
                 s.setServerAddr(rs.getString("serverAddr"));
-                stList.add(s);
+                System.out.println("s = " + s.getServerAddr());
+                sList.add(s);
+
             }
         }catch (SQLException e){
             e.printStackTrace();
         }
-        return stList;
+        return sList;
     }
 
 
@@ -210,9 +215,9 @@ public class HostService {
 
     boolean isUpdateServer = false;
     public boolean editServer(Host s){
-        System.out.println("edit host samma aaye");
+        System.out.println("edit server samma aaye");
         try{
-            String sql = "update serverHost " + "set serverName=?, serverAddr=?, " +  "where id="+s.getsId();
+            String sql = "update serverHost " + "set serverName=?, serverAddr=? " +  "where ID="+s.getserverId();
             PreparedStatement pstm = new DBConnection().getPreparedStatement(sql);
             pstm.setString(1,s.getServerName());
             pstm.setString(2,s.getServerAddr());
@@ -226,6 +231,7 @@ public class HostService {
             System.out.println(isUpdateServer);
         }catch (SQLException e){
             e.printStackTrace();
+            System.out.println(isUpdateServer);
         }return isUpdateServer;
     }
 
@@ -256,6 +262,9 @@ public class HostService {
 
 
     public static void main(String[] args){
+
+        HostService myobj = new HostService();
+        myobj.serverList();
 
         }
 }

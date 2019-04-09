@@ -89,7 +89,7 @@
                     <a class="nav-link" href="#">Reports</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="listHost?q=listHost&w=listServer">Host</a>
+                    <a class="nav-link" href="listHost?q=listHost">Host</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="listUser?q=listUser">Admin</a>

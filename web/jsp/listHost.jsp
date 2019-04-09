@@ -82,20 +82,18 @@
             <th>ID</th>
             <th>Server Name</th>
             <th>Server Address</th>
-            <%--<th>Edit</th>
-            <th>Delete</th>--%>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
 
         <c:forEach var="server" items="${s}">
         <tr>
 
-            <td>${server.id}</td>
+            <td>${server.serverId}</td>
             <td>${server.serverName}</td>
             <td>${server.serverAddr}</td>
-
-            <%--<td><a target="_blank" href="">${host.url}</a></td>
-            <td><a href="editHost?q=editHost&id=${host.id}&appName=${host.appName}&ipAddr=${host.ipAddr}&url=${host.url}">Edit</a></td>
-            <td><a href="deleteHost?q=deleteHost&id=${host.id}">Delete</a></td>--%>
+            <td><a href="editServer?q=editServer&serverId=${server.serverId}&serverName=${server.serverName}&serverAddr=${server.serverAddr}">Edit</a></td>
+            <td><a href="deleteServer?q=deleteServer&id=${server.serverId}">Delete</a></td>
         </tr>
         </c:forEach>
 

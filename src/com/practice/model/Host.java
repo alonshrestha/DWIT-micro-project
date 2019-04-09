@@ -3,7 +3,7 @@ package com.practice.model;
 public class Host {
 
     int id;
-    int sId;
+    int serverId;
     int appCount;
     int serverCount;
     String serverName;
@@ -19,8 +19,8 @@ public class Host {
     public int getServerCount(){return serverCount;}
     public void setServerCount(int serverCount){this.serverCount=serverCount;}
 
-    public int getsId(){return sId;}
-    public void setsId(int sid){this.sId=sid;}
+    public int getserverId(){return serverId;}
+    public void setserverId(int sid){this.serverId=sid;}
 
     public String getServerName(){return  serverName;}
     public void setServerName(String serverName){this.serverName = serverName;}
