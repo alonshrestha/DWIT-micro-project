@@ -139,5 +139,12 @@
         <servlet-name>HostServlet</servlet-name>
         <url-pattern>/editServerPost</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>HostServlet</servlet-name>
+        <url-pattern>/listReports</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>
 

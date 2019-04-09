@@ -44,31 +44,29 @@
 </head>
 
 <body>
-<h2>User Details</h2>
+<h2>User Issue Reports</h2>
 <ul>
-    <a href="register?q=register"><button type="submit" class=" btn btn-primary">Add User</button></a>
-    <a href="home?q=home"><button type="submit" class=" btn btn-primary">Home</button> </a>
-
+    <a href="home?q=home"><button type="submit" class="btn btn-primary">Home</button> </a>
 </ul>
 <table  class="table table-striped">
     <thead class="thead-dark">
     <tr>
-        <th>ID</th>
+        <th>Date</th>
         <th>Name</th>
         <th>Email</th>
-        <th>Password</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th>Batch</th>
+        <th>Subject</th>
+        <th>Message</th>
     </tr>
     </thead>
-    <c:forEach var="user" items="${u}">
+    <c:forEach var="repo" items="${a}">
         <tr>
-            <td>${user.id}</td>
-            <td>${user.name}</td>
-            <td>${user.email}</td>
-            <td>${user.password}</td>
-            <td><a href="editUser?q=editUser&id=${user.id}">Edit</a></td>
-            <td><a href="deleteUser?q=deleteUser&id=${user.id}">Delete</a></td>
+            <td>${repo.date}</td>
+            <td>${repo.reportName}</td>
+            <td>${repo.reportEmail}</td>
+            <td>${repo.reportBatch}</td>
+            <td>${repo.reportSubject}</td>
+            <td>${repo.reportMessage}</td>
         </tr>
     </c:forEach>
 </table>

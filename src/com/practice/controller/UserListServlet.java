@@ -1,7 +1,12 @@
 package com.practice.controller;
 
+import com.practice.model.Host;
+import com.practice.model.Reports;
 import com.practice.model.Users;
+import com.practice.service.HostService;
+import com.practice.service.ReportService;
 import com.practice.service.UserListService;
+import javafx.beans.property.ReadOnlyListProperty;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -51,6 +56,8 @@ public class UserListServlet extends HttpServlet {
             System.out.println("id payee");
             request.getRequestDispatcher("jsp/editUser.jsp").forward(request, response);
         }
+
+/*----------------------------------__________-----------------_____________----------______----_____---_____-------_____--*/
 
 
         }

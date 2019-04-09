@@ -87,7 +87,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Reports</a>
+                    <a class="nav-link" href="listReports?q=listReports">Reports</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="listHost?q=listHost">Host</a>
@@ -143,13 +143,13 @@
             <h2>Application On Monitor</h2>
             <div class="table-responsive">
                 <table class="table table-striped">
-                    <thead>
+                    <thead class="thead-dark">
                     <tr>
                         <th>Application</th>
                         <th>IP Address</th>
                         <th>URL</th>
                     </tr>
-
+                    </thead>
                     <c:forEach var="host" items="${h}">
                     <tr>
                         <td>${host.appName}</td>
@@ -165,11 +165,12 @@
             <h2>Server On Monitor</h2>
             <div class="table-responsive">
                 <table class="table table-striped">
-                    <thead>
+                    <thead class="thead-dark">
                     <tr>
                         <th>Server Name</th>
                         <th>Server Address</th>
                     </tr>
+                    </thead>
 
                     <c:forEach var="server" items="${s}">
                     <tr>

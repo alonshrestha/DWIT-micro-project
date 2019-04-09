@@ -20,11 +20,12 @@
 </head>
 <body>
 <div align="center">
-    <form action="editHostPost" method="post">
+    <form action="editHostPost" method="post" class="form-inline">
         <h1>ID=${id}</h1>
+        <input type="text"  class="form-control mb-4" placeholder="E-mail">
         <input type="hidden" name="q" value="editHost">
         <input type="hidden" name="id" value="${id}">
-        Application <input type="text" name="appName" value="${appName}" required="required"><br><br>
+        Application <input type="text" name="appName"  value="${appName}" required="required"><br><br>
         IP Address <input type="text" name="ipAddr"  value="${ipAddr}" required = "required"><br><bra>
         Url <input type="text" name="url"  value="${url}"required = "required"><br><br>
         <input type="submit" value="Save">

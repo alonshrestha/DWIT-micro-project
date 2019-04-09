@@ -66,6 +66,12 @@ public class UserLoginServlet extends HttpServlet {
             request.setAttribute("h", hostList);
             List<Host> serverList = new HostService().serverList();
             request.setAttribute("s", serverList);
+
+            List<Host> hostCount = new HostService().countHost();
+            request.setAttribute("hc", hostCount);
+
+            List<Host> serverCount = new HostService().countServer();
+            request.setAttribute("sc", serverCount);
             request.getRequestDispatcher("jsp/home.jsp").forward(request,response);
         }
         if(page.equalsIgnoreCase("logout"))

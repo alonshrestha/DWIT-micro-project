@@ -2,7 +2,9 @@ package com.practice.controller;
 
 import com.practice.model.CheckInternet;
 import com.practice.model.Host;
+import com.practice.model.Reports;
 import com.practice.service.HostService;
+import com.practice.service.ReportService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -231,6 +233,15 @@ public class    HostServlet extends HttpServlet {
             request.setAttribute("s", serverList);
             RequestDispatcher rd = request.getRequestDispatcher("jsp/listHost.jsp");
             rd.forward(request, response);
+        }
+
+        /*____________________________________________________________________________________________*/
+
+        if(q.equalsIgnoreCase("listReports")){
+            List<Reports> reports = new ReportService().selectReport();
+            request.setAttribute("a", reports);
+            request.getRequestDispatcher("jsp/report.jsp").forward(request, response);
+
         }
     }
 }

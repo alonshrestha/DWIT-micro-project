@@ -44,13 +44,13 @@
 </head>
 
 <body>
-<h2>Host Details</h2>
+<h2>Application Details</h2>
 <ul>
-    <li><a href="regHost?q=regHost" style="align-items: center"><button type="submit" style="align-items: center">Add Host</button></a></li>
-    <li><a href="home?q=home" ><button type="submit">Home</button> </a></li>
-    <%--<li><a href="logout?q=logout"><button type="submit">Logout</button> </a></li>--%>
+    <a href="regHost?q=regHost"><button type="submit" class="btn btn-primary">Add Host</button></a>
+    <a href="home?q=home"><button type="submit" class="btn btn-primary">Home</button> </a>
 </ul>
-<table>
+    <table  class="table table-striped">
+    <thead class="thead-dark">
     <tr>
         <th>ID</th>
         <th>Application</th>
@@ -59,7 +59,7 @@
         <th>Edit</th>
         <th>Delete</th>
     </tr>
-
+    </thead>
     <c:forEach var="host" items="${h}">
         <tr>
             <td>${host.id}</td>
@@ -71,13 +71,13 @@
         </tr>
     </c:forEach>
 </table>
-
+<h2>Server Details</h2>
 <ul>
-<li><a href="regServer?q=regServer" style="align-items: center"><button type="submit" style="align-items: center">Add Server</button></a></li>
+    <a href="regServer?q=regServer"><button type="submit" class="btn btn-primary">Add Server</button></a>
 </ul>
 <div class="table-responsive">
     <table class="table table-striped">
-
+        <thead class="thead-dark">
         <tr>
             <th>ID</th>
             <th>Server Name</th>
@@ -85,7 +85,7 @@
             <th>Edit</th>
             <th>Delete</th>
         </tr>
-
+        </thead>
         <c:forEach var="server" items="${s}">
         <tr>
 

@@ -46,12 +46,12 @@
 <body>
 <h2>User Details</h2>
 <ul>
-    <li><a href="register?q=register" style="align-items: center"><button type="submit" style="align-items: center">Add User</button></a></li>
-    <li><a href="home?q=home"><button type="submit">Home</button> </a></li>
-    <li><a href="logout?q=logout"><button type="submit">Logout</button> </a></li>
+    <a href="register?q=register"><button type="submit" class=" btn btn-primary">Add User</button></a>
+    <a href="home?q=home"><button type="submit" class=" btn btn-primary">Home</button> </a>
 
 </ul>
-<table>
+<table  class="table table-striped">
+    <thead class="thead-dark">
     <tr>
         <th>ID</th>
         <th>Name</th>
@@ -60,7 +60,7 @@
         <th>Edit</th>
         <th>Delete</th>
     </tr>
-
+    </thead>
     <c:forEach var="user" items="${u}">
         <tr>
             <td>${user.id}</td>
