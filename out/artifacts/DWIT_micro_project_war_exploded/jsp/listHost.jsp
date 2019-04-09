@@ -48,8 +48,7 @@
 <ul>
     <li><a href="regHost?q=regHost" style="align-items: center"><button type="submit" style="align-items: center">Add Host</button></a></li>
     <li><a href="home?q=home" ><button type="submit">Home</button> </a></li>
-    <li><a href="logout?q=logout"><button type="submit">Logout</button> </a></li>
-
+    <%--<li><a href="logout?q=logout"><button type="submit">Logout</button> </a></li>--%>
 </ul>
 <table>
     <tr>
@@ -72,6 +71,37 @@
         </tr>
     </c:forEach>
 </table>
+
+<ul>
+<li><a href="regServer?q=regServer" style="align-items: center"><button type="submit" style="align-items: center">Add Server</button></a></li>
+</ul>
+<div class="table-responsive">
+    <table class="table table-striped">
+
+        <tr>
+            <th>ID</th>
+            <th>Server Name</th>
+            <th>Server Address</th>
+            <%--<th>Edit</th>
+            <th>Delete</th>--%>
+        </tr>
+
+        <c:forEach var="server" items="${s}">
+        <tr>
+
+            <td>${server.id}</td>
+            <td>${server.serverName}</td>
+            <td>${server.serverAddr}</td>
+
+            <%--<td><a target="_blank" href="">${host.url}</a></td>
+            <td><a href="editHost?q=editHost&id=${host.id}&appName=${host.appName}&ipAddr=${host.ipAddr}&url=${host.url}">Edit</a></td>
+            <td><a href="deleteHost?q=deleteHost&id=${host.id}">Delete</a></td>--%>
+        </tr>
+        </c:forEach>
+
+    </table>
+</div>
+
 
 
 </body>

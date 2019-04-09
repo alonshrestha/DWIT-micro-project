@@ -57,7 +57,7 @@ public class HostService {
         return hostList;
     }
 
-    public void deleteHost(int id) {
+    public void     deleteHost(int id) {
         String query = "delete from host where id=?";
         try {
             PreparedStatement pstm = new DBConnection().getPreparedStatement(query);
@@ -114,6 +114,19 @@ public class HostService {
 
     }
 
+    public int countApp(){
+        int num = 0;
+        try{
+            String sql = "select count(*) as total from host";
+            PreparedStatement pstm = new DBConnection().getPreparedStatement(sql);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                num = rs.getInt("total");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }return num;
+    }
 
     public List<Host> selectIPAddr(){
         List<Host> ipAddrSelect = new ArrayList<>();
@@ -137,7 +150,112 @@ public class HostService {
 
     }
 
-        public static void main(String[] args){
+    boolean isAppCount = false;
+
+
+    //*---------------------------------------------------------------------------------------------------------------*/
+
+    boolean isServerAdd = false;
+    public boolean addServer(Host s){
+        try{
+            String sql = "insert into serverHost (serverName,serverAddr)" + " values(?,?)";
+            PreparedStatement pstm = new DBConnection().getPreparedStatement(sql);
+            System.out.println(s.getServerName() + "aayo ta yaa ta serverName");
+            pstm.setString(1,s.getServerName());
+            pstm.setString(2,s.getServerAddr());
+
+            int rowAffected = pstm.executeUpdate();
+            if(rowAffected > 0){
+                isHostAdd = true;
+            }else
+                isHostAdd = false;
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return isServerAdd;
+    }
+
+    public List<Host> serverList() {
+        List<Host> stList = new ArrayList<>();
+        try{
+            String sql = "select * from serverHost";
+            PreparedStatement pstm = new DBConnection().getPreparedStatement(sql);
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+                Host s = new Host();
+                s.setsId(rs.getInt("id"));
+                s.setServerName(rs.getString("serverName"));
+                s.setServerAddr(rs.getString("serverAddr"));
+                stList.add(s);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return stList;
+    }
+
+
+    public void deleteserver(int id) {
+        String query = "delete from serverHost where id=?";
+        try {
+            PreparedStatement pstm = new DBConnection().getPreparedStatement(query);
+            pstm.setInt(1,id);
+
+            pstm.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    boolean isUpdateServer = false;
+    public boolean editServer(Host s){
+        System.out.println("edit host samma aaye");
+        try{
+            String sql = "update serverHost " + "set serverName=?, serverAddr=?, " +  "where id="+s.getsId();
+            PreparedStatement pstm = new DBConnection().getPreparedStatement(sql);
+            pstm.setString(1,s.getServerName());
+            pstm.setString(2,s.getServerAddr());
+
+            int affectedRow = pstm.executeUpdate();
+            if(affectedRow > 0){
+                isUpdateServer = true;
+            }else {
+                isUpdateServer = false;
+            }
+            System.out.println(isUpdateServer);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }return isUpdateServer;
+    }
+
+
+    public List<Host> selectServerAddr(){
+        List<Host> serverAddrSelect = new ArrayList<>();
+        try{
+            String sql = "select serverAddr from host";
+            PreparedStatement pstm = new DBConnection().getPreparedStatement(sql);
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+
+                Host s = new Host();
+                s.setIpAddr(rs.getString("serverAddr"));
+                serverAddrSelect.add(s);
+
+
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }
+        return serverAddrSelect;
+
+    }
+
+
+
+
+    public static void main(String[] args){
 
         }
 }

@@ -89,7 +89,7 @@
                     <a class="nav-link" href="#">Reports</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="listHost?q=listHost">Host</a>
+                    <a class="nav-link" href="listHost?q=listHost&w=listServer">Host</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="listUser?q=listUser">Admin</a>
@@ -131,7 +131,7 @@
             </section>
 
             <br>
-            <h2>Host On Monitor</h2>
+            <h2>Application On Monitor</h2>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -153,11 +153,31 @@
             </div>
 
 
+            <h2>Server On Monitor</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Server Name</th>
+                        <th>Server Address</th>
+                    </tr>
+
+                    <c:forEach var="server" items="${s}">
+                    <tr>
+                        <td>${server.serverName}</td>
+                        <td>${server.serverAddr}</td>
+
+                    </tr>
+                    </c:forEach>
+                </table>
+            </div>
         </main>
 
     </div>
 </div>
-
+<c:forEach var="count" items="${c}">
+    <h1>${count.total}</h1>
+</c:forEach>
 <script src="bootstrap-4.3.1/js/jquery.min.js"></script>
 <script src="bootstrap-4.3.1/js/bootstrap.min.js"></script>
 

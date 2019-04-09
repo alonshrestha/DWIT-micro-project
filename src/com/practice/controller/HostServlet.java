@@ -42,6 +42,7 @@ public class HostServlet extends HttpServlet {
             if (isHostAdded) {
                 List<Host> hostList = new HostService().listHost();
                 request.setAttribute("h", hostList);
+
                 request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
@@ -81,26 +82,54 @@ public class HostServlet extends HttpServlet {
 
 
 
+        /*---------------------------------------------------------------------------------------------*/
+
+        if(q.equalsIgnoreCase("regServer2")){
+            String serverName = request.getParameter("serverName");
+            String serverAddr = request.getParameter("serverAddr");
+
+            Host s = new Host();
+            s.setServerName(serverName);
+            s.setServerAddr(serverAddr);
+
+            boolean isServerAdd = new   HostService().addServer(s);
+            if (isServerAdd) {
+                List<Host> serverList = new HostService().listHost();
+                request.setAttribute("s", serverList);
+                request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
+            } else {
+                request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
+            }
+
+        }
+
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String q = request.getParameter("q");
+        String w = request.getParameter("w");
 
         if (q.equalsIgnoreCase("regHost")) {
             request.getRequestDispatcher("jsp/registerHost.jsp").forward(request, response);
         }
 
+        if (q.equalsIgnoreCase("regServer")) {
+            request.getRequestDispatcher("jsp/registerServer.jsp").forward(request, response);
+        }
+
         if (q.equalsIgnoreCase("listHost")) {
             List<Host> hostList = new HostService().listHost();
             request.setAttribute("h", hostList);
+
+            List<Host> serverList = new HostService().serverList();
+            request.setAttribute("s", serverList);
             request.getRequestDispatcher("jsp/listHost.jsp").forward(request, response);
-
-
         }
 
         if (q.equalsIgnoreCase("deleteHost")) {
+            System.out.println("delete ma aaye hai ma ");
             int id = Integer.parseInt(request.getParameter("id"));
             System.out.println(id);
             new HostService().deleteHost(id);

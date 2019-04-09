@@ -3,9 +3,30 @@ package com.practice.model;
 public class Host {
 
     int id;
+    int sId;
+    int appCount;
+    int serverCount;
+    String serverName;
+    String serverAddr;
     String appName;
     String ipAddr;
     String url;
+
+
+    public int getAppCount(){return appCount;}
+    public void setAppCount(int appCount){this.appCount=appCount;}
+
+    public int getServerCount(){return serverCount;}
+    public void setServerCount(int serverCount){this.serverCount=serverCount;}
+
+    public int getsId(){return sId;}
+    public void setsId(int sid){this.sId=sid;}
+
+    public String getServerName(){return  serverName;}
+    public void setServerName(String serverName){this.serverName = serverName;}
+
+    public String getServerAddr(){return serverAddr;}
+    public void setServerAddr(String serverAddr){this.serverAddr = serverAddr;}
 
     public int getId(){
         return id;

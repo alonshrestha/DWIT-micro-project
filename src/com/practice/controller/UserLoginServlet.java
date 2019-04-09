@@ -15,14 +15,6 @@ public class UserLoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("--------------------------------");
 
-        String page = request.getParameter("q");
-        if (page.equalsIgnoreCase("listHost"))
-        {
-            List<Host> hostList = new HostService().listHost();
-            request.setAttribute("h", hostList);
-            request.getRequestDispatcher("jsp/home.jsp").forward(request,response);
-        }
-
 
             String email = request.getParameter("email");
             String password = request.getParameter("password");
@@ -35,9 +27,25 @@ public class UserLoginServlet extends HttpServlet {
 
             if (isUserExist){
 
-                request.getRequestDispatcher("jsp/home.jsp").forward(request,response);
+                String page = request.getParameter("q");
+                if (page.equalsIgnoreCase("listHost"))
+                {
+                    List<Host> hostList = new HostService().listHost();
+                    request.setAttribute("h", hostList);
+//                    request.getRequestDispatcher("jsp/home.jsp").forward(request,response);
+
+                    List<Host> serverList = new HostService().serverList();
+                    request.setAttribute("s", serverList);
+                    request.getRequestDispatcher("jsp/home.jsp").forward(request,response);
+
+                }
             }else
-                request.getRequestDispatcher("dome.jsp").forward(request,response);
+                request.getRequestDispatcher("main.jsp").forward(request,response);
+
+
+
+
+
 
 
     }
