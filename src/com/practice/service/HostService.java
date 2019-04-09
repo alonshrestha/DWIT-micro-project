@@ -263,6 +263,22 @@ public class HostService {
         }return countHost;
     }
 
+    public List<Host> countServer(){
+        List<Host> countServer = new ArrayList<>();
+        try{
+            String sql = "select count(*) as total from serverHost";
+            PreparedStatement pstm = new DBConnection().getPreparedStatement(sql);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                Host ac = new Host();
+                ac.setServerCount(rs.getInt("total"));
+                countServer.add(ac);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }return countServer;
+    }
+
 
 
 

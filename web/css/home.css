@@ -1,0 +1,31 @@
+.numberCircle {
+    width: 120px;
+    line-height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 32px;
+    border: 2px solid #666;
+}
+
+.centered {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#countH{
+    top: 100%;
+    color: black;
+    padding: 40px;
+    font-family:"DejaVu Sans Mono";
+    text-align: center;
+    font-size: 150px
+}
+#countS{
+    top: 100%;
+    color: black;
+    padding: 40px;
+    font-family:"DejaVu Sans Mono";
+    text-align: center;
+    font-size: 150px
+}

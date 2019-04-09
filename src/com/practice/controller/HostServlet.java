@@ -45,6 +45,13 @@ public class    HostServlet extends HttpServlet {
                 List<Host> serverList = new HostService().serverList();
                 request.setAttribute("s", serverList);
 
+                List<Host> hostCount = new HostService().countHost();
+                request.setAttribute("hc", hostCount);
+
+                List<Host> serverCount = new HostService().countServer();
+                request.setAttribute("sc", serverCount);
+
+
                 request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
@@ -137,6 +144,13 @@ public class    HostServlet extends HttpServlet {
 
                 List<Host> serverList = new HostService().serverList();
                 request.setAttribute("s", serverList);
+
+                List<Host> hostCount = new HostService().countHost();
+                request.setAttribute("hc", hostCount);
+
+                List<Host> serverCount = new HostService().countServer();
+                request.setAttribute("sc", serverCount);
+
                 request.getRequestDispatcher("jsp/listHost.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("jsp/home.jsp").forward(request, response);

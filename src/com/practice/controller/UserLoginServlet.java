@@ -38,6 +38,10 @@ public class UserLoginServlet extends HttpServlet {
 
                     List<Host> hostCount = new HostService().countHost();
                     request.setAttribute("hc", hostCount);
+
+                    List<Host> serverCount = new HostService().countServer();
+                    request.setAttribute("sc", serverCount);
+
                     request.getRequestDispatcher("jsp/home.jsp").forward(request,response);
 
                 }

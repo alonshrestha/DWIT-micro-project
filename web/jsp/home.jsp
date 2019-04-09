@@ -57,6 +57,7 @@
     <title>home</title>
 
     <style type="text/css">
+        <%@include file="/css/home.css"%>
         <%@include file="/bootstrap-4.3.1/css/bootstrap.min.css" %>
         <%@include file="/bootstrap-4.3.1/css/bootstrap-grid.min.css" %>
     </style>
@@ -105,7 +106,10 @@
                 <div class="col-6 col-sm-3 placeholder">
                     <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200"
                          height="200" class="img-fluid rounded-circle"
-                         alt="Generic placeholder thumbnail">
+                         alt="">
+                    <c:forEach var="count" items="${sc}">
+                        <div class="centered"><h1 id="countS">${count.serverCount}</h1></div>
+                    </c:forEach>
                     <h4>Running Server</h4>
                     <div class="text-muted">Number of Servers</div>
                 </div>
@@ -115,10 +119,15 @@
                     <input class="form-control mr-sm-2" type="text" name="ip" placeholder="IP Address">
                     <button class="btn btn-outline-primary" type="submit">Check</button>
                 </form>
+
                 <div class="col-6 col-sm-3 placeholder">
+
                     <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200"
                          height="200" class="img-fluid rounded-circle"
                          alt="Generic placeholder thumbnail">
+                    <c:forEach var="count" items="${hc}">
+                        <div class="centered"><h1 id="countH">${count.hostCount}</h1></div>
+                    </c:forEach>
                     <h4>Running Application</h4>
                     <span class="text-muted">Number of Applications</span>
                 </div>
@@ -175,9 +184,6 @@
 
     </div>
 </div>
-<c:forEach var="count" items="${hc}">
-    <h1>${count.hostCount}</h1>
-</c:forEach>
 <script src="bootstrap-4.3.1/js/jquery.min.js"></script>
 <script src="bootstrap-4.3.1/js/bootstrap.min.js"></script>
 
