@@ -4,7 +4,7 @@ public class Host {
 
     int id;
     int serverId;
-    int appCount;
+    int hostCount;
     int serverCount;
     String serverName;
     String serverAddr;
@@ -13,8 +13,8 @@ public class Host {
     String url;
 
 
-    public int getAppCount(){return appCount;}
-    public void setAppCount(int appCount){this.appCount=appCount;}
+    public int getHostCount(){return hostCount;}
+    public void setHostCount(int appCount){this.hostCount=appCount;}
 
     public int getServerCount(){return serverCount;}
     public void setServerCount(int serverCount){this.serverCount=serverCount;}

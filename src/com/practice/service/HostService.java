@@ -114,19 +114,7 @@ public class HostService {
 
     }
 
-    public int countApp(){
-        int num = 0;
-        try{
-            String sql = "select count(*) as total from host";
-            PreparedStatement pstm = new DBConnection().getPreparedStatement(sql);
-            ResultSet rs = pstm.executeQuery();
-            while (rs.next()) {
-                num = rs.getInt("total");
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }return num;
-    }
+
 
     public List<Host> selectIPAddr(){
         List<Host> ipAddrSelect = new ArrayList<>();
@@ -256,6 +244,23 @@ public class HostService {
         }
         return serverAddrSelect;
 
+
+    }
+
+    public List<Host> countHost(){
+        List<Host> countHost = new ArrayList<>();
+        try{
+            String sql = "select count(*) as total from host";
+            PreparedStatement pstm = new DBConnection().getPreparedStatement(sql);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                Host hc = new Host();
+                hc.setHostCount(rs.getInt("total"));
+                countHost.add(hc);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }return countHost;
     }
 
 
@@ -264,7 +269,7 @@ public class HostService {
     public static void main(String[] args){
 
         HostService myobj = new HostService();
-        myobj.serverList();
+        myobj.countHost();
 
         }
 }

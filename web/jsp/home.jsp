@@ -175,8 +175,8 @@
 
     </div>
 </div>
-<c:forEach var="count" items="${c}">
-    <h1>${count.total}</h1>
+<c:forEach var="count" items="${hc}">
+    <h1>${count.hostCount}</h1>
 </c:forEach>
 <script src="bootstrap-4.3.1/js/jquery.min.js"></script>
 <script src="bootstrap-4.3.1/js/bootstrap.min.js"></script>
