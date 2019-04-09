@@ -32,7 +32,6 @@ public class UserLoginServlet extends HttpServlet {
                 {
                     List<Host> hostList = new HostService().listHost();
                     request.setAttribute("h", hostList);
-//                    request.getRequestDispatcher("jsp/home.jsp").forward(request,response);
 
                     List<Host> serverList = new HostService().serverList();
                     request.setAttribute("s", serverList);
@@ -58,6 +57,8 @@ public class UserLoginServlet extends HttpServlet {
         {
             List<Host> hostList = new HostService().listHost();
             request.setAttribute("h", hostList);
+            List<Host> serverList = new HostService().serverList();
+            request.setAttribute("s", serverList);
             request.getRequestDispatcher("jsp/home.jsp").forward(request,response);
         }
         if(page.equalsIgnoreCase("logout"))

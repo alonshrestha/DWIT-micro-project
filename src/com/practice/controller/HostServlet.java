@@ -42,6 +42,9 @@ public class    HostServlet extends HttpServlet {
                 List<Host> hostList = new HostService().listHost();
                 request.setAttribute("h", hostList);
 
+                List<Host> serverList = new HostService().serverList();
+                request.setAttribute("s", serverList);
+
                 request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
@@ -71,6 +74,9 @@ public class    HostServlet extends HttpServlet {
             if (isHostUpdate) {
                 List<Host> hostList = new HostService().listHost();
                 request.setAttribute("h", hostList);
+
+                List<Host> serverList = new HostService().serverList();
+                request.setAttribute("s", serverList);
                 request.getRequestDispatcher("jsp/listHost.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("jsp/editHost.jsp").forward(request, response);
@@ -93,13 +99,16 @@ public class    HostServlet extends HttpServlet {
 
             boolean isServerAdd = new HostService().addServer(s);
             if (isServerAdd) {
-                List<Host> serverList = new HostService().serverList();
 
+                List<Host> hostList = new HostService().listHost();
+                request.setAttribute("h", hostList);
+
+                List<Host> serverList = new HostService().serverList();
                 request.setAttribute("s", serverList);
-                System.out.println("serverList = " + serverList);
-                request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
+
+                request.getRequestDispatcher("jsp/listHost.jsp").forward(request, response);
             } else {
-                request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
+                request.getRequestDispatcher("jsp/registerServer.jsp").forward(request, response);
             }
 
         }
@@ -122,6 +131,10 @@ public class    HostServlet extends HttpServlet {
             boolean isServerUpdate = new HostService().editServer(s);
 
             if (isServerUpdate) {
+
+                List<Host> hostList = new HostService().listHost();
+                request.setAttribute("h", hostList);
+
                 List<Host> serverList = new HostService().serverList();
                 request.setAttribute("s", serverList);
                 request.getRequestDispatcher("jsp/listHost.jsp").forward(request, response);
@@ -161,6 +174,9 @@ public class    HostServlet extends HttpServlet {
             new HostService().deleteHost(id);
             List<Host> hostList = new HostService().listHost();
             request.setAttribute("h", hostList);
+
+            List<Host> serverList = new HostService().serverList();
+            request.setAttribute("s", serverList);
             RequestDispatcher rd = request.getRequestDispatcher("jsp/listHost.jsp");
             rd.forward(request, response);
         }
@@ -188,5 +204,19 @@ public class    HostServlet extends HttpServlet {
             request.getRequestDispatcher("jsp/editServer.jsp").forward(request, response);
         }
 
+        if (q.equalsIgnoreCase("deleteServer")) {
+            System.out.println("deleteServer ma aaye hai ma ");
+            int serverId = Integer.parseInt(request.getParameter("serverId"));
+            System.out.println(serverId);
+            new HostService().deleteserver(serverId);
+
+            List<Host> hostList = new HostService().listHost();
+            request.setAttribute("h", hostList);
+
+            List<Host> serverList = new HostService().serverList();
+            request.setAttribute("s", serverList);
+            RequestDispatcher rd = request.getRequestDispatcher("jsp/listHost.jsp");
+            rd.forward(request, response);
+        }
     }
 }

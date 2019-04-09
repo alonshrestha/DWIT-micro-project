@@ -160,15 +160,15 @@ public class HostService {
         try{
             String sql = "insert into serverHost (serverName,serverAddr)" + " values(?,?)";
             PreparedStatement pstm = new DBConnection().getPreparedStatement(sql);
-            System.out.println(s.getServerName() + "aayo ta yaa ta serverName");
+            System.out.println(s.getServerName() + " aayo ta yaa ta serverName");
             pstm.setString(1,s.getServerName());
             pstm.setString(2,s.getServerAddr());
 
             int rowAffected = pstm.executeUpdate();
             if(rowAffected > 0){
-                isHostAdd = true;
+                isServerAdd = true;
             }else
-                isHostAdd = false;
+                isServerAdd = false;
         }catch (SQLException e){
             e.printStackTrace();
         }

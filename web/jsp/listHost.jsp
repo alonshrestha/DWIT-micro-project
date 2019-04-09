@@ -93,7 +93,7 @@
             <td>${server.serverName}</td>
             <td>${server.serverAddr}</td>
             <td><a href="editServer?q=editServer&serverId=${server.serverId}&serverName=${server.serverName}&serverAddr=${server.serverAddr}">Edit</a></td>
-            <td><a href="deleteServer?q=deleteServer&id=${server.serverId}">Delete</a></td>
+            <td><a href="deleteServer?q=deleteServer&serverId=${server.serverId}">Delete</a></td>
         </tr>
         </c:forEach>
 
