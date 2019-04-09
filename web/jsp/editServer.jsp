@@ -26,7 +26,7 @@
         <input type="hidden" name="serverId" value="${serverId}">
         Application <input type="text" name="serverName" value="${serverName}" required="required"><br><br>
         IP Address <input type="text" name="serverAddr"  value="${serverAddr}" required = "required"><br><br>
-        <input type="submit" value="Save">
+        <button class="btn btn-primary" type="submit">Save</button>
     </form>
 </div>
 
