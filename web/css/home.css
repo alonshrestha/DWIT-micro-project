@@ -15,17 +15,19 @@
 }
 #countH{
     top: 100%;
-    color: black;
+    color: white;
     padding: 40px;
     font-family:"DejaVu Sans Mono";
     text-align: center;
-    font-size: 150px
+    font-size: 120px;
+    padding-top: 40px;
 }
 #countS{
     top: 100%;
-    color: black;
+    color: white;
     padding: 40px;
     font-family:"DejaVu Sans Mono";
     text-align: center;
-    font-size: 150px
+    font-size: 120px;
+    padding-top: 70px;
 }
